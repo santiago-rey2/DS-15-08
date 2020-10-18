@@ -60,7 +60,7 @@ public class Clock {
      * @see String . format function to format integers with leading zeroes
      */
     public String printHour24 () { /* ... */ }
-6/**
+/**
      * Prints a String representation of the clock in 12h format .
      * @return An string in 12h format
      * @see String . format function to format integers with leading zeroes

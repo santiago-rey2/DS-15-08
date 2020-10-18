@@ -8,7 +8,10 @@ public class Code {
      * @param keypad The keypad to be analyzed .
      * @return true if it is valid , false otherwise .
      */
-    public static boolean isKeypadValid (char [][] keypad ) { /* ... */ }
+    public static boolean isKeypadValid (char [][] keypad ) {
+
+        return true;
+    }
     /**
      * Checks if an array of movements is valid when obtaining a key on a keypad .
      * An array of movements is valid if it is formed by Strings that only have the
@@ -17,7 +20,10 @@ public class Code {
      * @param movements Array of Strings representing movements .
      * @return true if it is valid , false otherwise .
      */
-    public static boolean areMovementsValid ( String [] movements ) { /* ... */ }
+    public static boolean areMovementsValid ( String [] movements ) {
+
+        return true;
+    }
     /**
      * Given a keypad and an array of movements , it returns a String with the code
      * resulting from applying the movements on the keypad .
@@ -27,5 +33,8 @@ public class Code {
      * @return Resulting code.
      * @throws IllegalArgumentException if the keypad of the movements are invalid .
      */
-    public static String obtainCode (char [][] keypad , String [] movements ) {/* ... */}
+    public static String obtainCode (char [][] keypad , String [] movements ) {
+
+        return movements[0];
+    }
 }
