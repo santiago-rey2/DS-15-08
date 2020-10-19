@@ -5,7 +5,7 @@ public class TrafficJunction {
      * Creates a trafic junction with four traffic lights named north , south ,
      * east and west. The north traffic light has just started its green cycle .
      */
-    public TrafficJunction () { /* ... */ }
+   // public TrafficJunction () { /* ... */ }
     /**
      * Indicates that a second of time has passed , so the traffic light with
      * the green or amber light should add 1 to its counter . If the counter
@@ -13,7 +13,7 @@ public class TrafficJunction {
      * If it changes to red then the following traffic light changes to green .
      * The order is: north , south , east , west and then again north .
      */
-    public void timesGoesBy () { /* ... */ }
+   // public void timesGoesBy () { /* ... */ }
     /**
      * If active is true all the traffic lights of the junction must change to
      * blinking amber ( meaning a non - controlled junction ).
@@ -21,7 +21,7 @@ public class TrafficJunction {
      * with north at green and the rest at red.
      * @param active true or false
      */
-    public void amberJunction ( boolean active ) { /* ... */ }
+   // public void amberJunction ( boolean active ) { /* ... */ }
     /**
      * Returns a String with the state of the traffic lights .
      * The format for each traffic light is the following :
@@ -35,6 +35,6 @@ public class TrafficJunction {
      * [ NORTH : AMBER ON ][ SOUTH : AMBER ON ][ EAST: AMBER ON ][ WEST: AMBER ON]
      * @return String that represents the state of the traffic lights
      */
-    @Override
-    public String toString () { /* ... */ }
+   // @Override
+   // public String toString () { /* ... */ }
 }

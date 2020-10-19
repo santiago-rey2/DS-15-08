@@ -32,4 +32,5 @@ class StringUtilitiesTest {
         // Given a more or less long String, the result should be normally not equal
         assertNotEquals(StringUtilities.generateRandomValidMix("Bye", "World"), StringUtilities.generateRandomValidMix("Bye", "World"));
     }
+
 }
