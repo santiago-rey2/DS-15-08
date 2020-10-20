@@ -64,6 +64,13 @@ class ClockTest {
         assertEquals( 0, c.getMinutes());
         assertEquals( 0, c.getSeconds());
         assertEquals(Clock.Period.AM, c.getPeriod());
+
+        c = new Clock(12, 0, 0, Clock.Period.PM);
+        assertEquals(12, c.getHours12());
+        assertEquals( 12, c.getHours24());
+        assertEquals( 0, c.getMinutes());
+        assertEquals( 0, c.getSeconds());
+        assertEquals(Clock.Period.PM, c.getPeriod());
     }
 
     @Test
