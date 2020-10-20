@@ -1,5 +1,7 @@
 package e2;
 
+import java.util.Arrays;
+
 public class Code {
     /**
      * Determines whether a keypad is valid . To do this , it must be a rectangle and
@@ -9,6 +11,35 @@ public class Code {
      * @return true if it is valid , false otherwise .
      */
     public static boolean isKeypadValid (char [][] keypad ) {
+        int numFilas,i=0,k=0,numCol;
+        boolean orden;
+        if(keypad == null)
+            return false;
+        if(keypad[0][0] != 1)
+            return false;
+        numFilas = keypad.length;
+        numCol= keypad[i].length;
+
+        //Bucle donde comprobamos que la matric es estrictamente rectangular en caso contrario decuelve falso
+        while(i<numFilas){
+            if(numCol != keypad[i].length)
+                return false;
+            i++;
+        }
+        if(numCol > 1)
+        orden = keypad[0][1] == 2;
+
+       for(i=0 ;i<numFilas; i++){
+           for(k=0; k<numCol; k++){
+
+           }
+       }
+
+
+
+
+        System.out.println();
+
 
         return true;
     }
