@@ -10,7 +10,7 @@ public class Clock {
     public enum Period{
         AM("AM"),
         PM("PM");
-        private String nombre;
+        private final String nombre;
 
         Period(String s){
             this.nombre = s;
@@ -29,7 +29,7 @@ public class Clock {
     public Clock ( String s) {
         int h,m,se;
         boolean cmp = true;
-        if(s.length() < 8 && s.length() > 11)
+        if(s.length() != 8 && s.length() != 11)
             throw new IllegalArgumentException("Invalid Format");
         if(s.charAt(2) !=':' && s.charAt(5) != ':')
             throw new IllegalArgumentException("Invalid Format");
@@ -223,7 +223,6 @@ public class Clock {
      */
     @Override
     public boolean equals ( Object obj) {
-        boolean resultado = false;
         if (this == obj) {
             return true;
         }
@@ -235,10 +234,7 @@ public class Clock {
         }
         final Clock other = (Clock) obj;
 
-        if(this.getHours24() == other.getHours24() && this.getMinutes() == other.getMinutes() && this.getSeconds()==other .getSeconds())
-            return true;
-
-        return resultado;
+        return this.getHours24() == other.getHours24() && this.getMinutes() == other.getMinutes() && this.getSeconds() == other.getSeconds();
 
     }
     /**
