@@ -1,12 +1,24 @@
 package e3;
 
 public class Clock {
+
     private int hour;
     private int minute;
     private int second;
     private Period periods;
 
-    public enum Period{AM,PM}
+    public enum Period{
+        AM("AM"),
+        PM("PM");
+        private String nombre;
+
+        Period(String s){
+            this.nombre = s;
+        }
+        public String getFormat(){
+            return this.nombre;
+        }
+    }
 
     /**
      * Creates a Clock instance parsing a String .
@@ -15,9 +27,59 @@ public class Clock {
      * @throws IllegalArgumentException if the string is not a valid hour.
      */
     public Clock ( String s) {
+        int h,m,se;
+        boolean cmp = true;
+        if(s.length() < 8 && s.length() > 11)
+            throw new IllegalArgumentException("Invalid Format");
+        if(s.charAt(2) !=':' && s.charAt(5) != ':')
+            throw new IllegalArgumentException("Invalid Format");
 
+        try {
+            h = Integer.parseInt(s.substring(0,2));
+            m = Integer.parseInt(s.substring(3,5));
+            se= Integer.parseInt(s.substring(6,8));
+        }catch (NumberFormatException e){
+            throw new IllegalArgumentException("Incorrect Number");
+        }
 
+        if(h < 24 && h >= 0 ){
+            this.hour = h;
+        }else{
+            throw new IllegalArgumentException("Not Correct Hour");
+        }
 
+        if(m <= 60 && m >= 0 ){
+            this.minute = m;
+        }else{
+            throw new IllegalArgumentException("Not Correct Minutes");
+        }
+
+        if(se <= 60 && se >= 0 ){
+            this.second = se;
+        }else{
+            throw new IllegalArgumentException("Not Correct Seconds");
+        }
+        if(s.length() == 8){
+            if(h > 12){
+                this.periods = Period.PM;
+            }else{
+                this.periods = Period.AM;
+            }
+        }
+        if(s.length() == 11){
+            if(s.charAt(8) == ' '){
+                if(s.substring(9,11).equals(Period.AM.getFormat())){
+                    cmp = false;
+                    this.periods = Period.AM;
+                }
+                if(s.substring(9,11).equals(Period.PM.getFormat())){
+                    cmp = false;
+                    this.periods = Period.PM;
+                }
+                if(cmp)
+                    throw new IllegalArgumentException("Invalid Period");
+            }
+        }
     }
 
     /**
@@ -41,10 +103,6 @@ public class Clock {
             this.minute = minutes;
         if(seconds < 60 && seconds > 0 )
             this.second = seconds;
-        System.out.println(hour);
-        System.out.println(minute);
-        System.out.println(second);
-
     }
     /**
      * Creates a clock given the values in 12h format . Period is a enumeration
@@ -59,16 +117,12 @@ public class Clock {
     public Clock (int hours , int minutes , int seconds , Period period ) {
         if(hours <= 12 && hours > 0)
             this.hour = hours;
-        if(minutes < 60 && minutes > 0)
+        if(minutes <= 60 && minutes >= 0)
             this.minute = minutes;
-        if(seconds < 60 && seconds > 0 )
+        if(seconds <= 60 && seconds >= 0 )
             this.second = seconds;
         this.periods = period;
 
-        System.out.println(hour);
-        System.out.println(minute);
-        System.out.println(second);
-        System.out.println(periods);
 
     }
     /**
@@ -97,8 +151,6 @@ public class Clock {
     public int getHours12 () {
 
         if(hour > 12){
-            System.out.println("pasamos");
-            System.out.println(hour);
             return (hour -12);
         }else {
             return hour;
@@ -136,11 +188,12 @@ public class Clock {
     public String printHour24 () {
         StringBuilder aux = new StringBuilder();
         int hTmp = this.getHours24();
-        aux.append(String.valueOf(hTmp));
-        aux.append(String.valueOf(":"));
-        aux.append(String.valueOf(minute));
-        aux.append(String.valueOf(":"));
-        aux.append(String.valueOf(second));
+
+        aux.append(String.format("%02d",hTmp));
+        aux.append(":");
+        aux.append(String.format("%02d",getMinutes()));
+        aux.append(":");
+        aux.append(String.format("%02d",getSeconds()));
         return aux.toString();
     }
 /**
@@ -151,23 +204,43 @@ public class Clock {
     public String printHour12 () {
         StringBuilder aux = new StringBuilder();
         int hTmp = this.getHours12();
-        aux.append(String.valueOf(hTmp));
-        aux.append(String.valueOf(":"));
-        aux.append(String.valueOf(minute));
-        aux.append(String.valueOf(":"));
-        aux.append(String.valueOf(second));
+        aux.append(String.format("%02d",hTmp));
+        aux.append(":");
+        aux.append(String.format("%02d",getMinutes()));
+        aux.append(":");
+        aux.append(String.format("%02d",getSeconds()));
+        aux.append(" ");
+        aux.append(getPeriod().getFormat());
         return aux.toString();
     }
     /**
      * Performs the equality tests of the current clock with another clock
      * passed as a parameter . Two clock are equal if they represent the same
      * instant regardless of being in 12h or 24h format .
-     * @param o The clock to be compared with the current clock .
+     * @param obj The clock to be compared with the current clock .
      * @return true if the clocks are equals , false otherwise .
      *
      */
-   // @Override
-   // public boolean equals ( Object o) { /* ... */ }
+    @Override
+    public boolean equals ( Object obj) {
+        boolean resultado = false;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Clock other = (Clock) obj;
+
+        if(this.getHours24() == other.getHours24() && this.getMinutes() == other.getMinutes() && this.getSeconds()==other .getSeconds())
+            return true;
+
+        return resultado;
+
+    }
     /**
      * Returns a integer that is a hash code representation of the clock using
      * the "hash 31" algorithm .
