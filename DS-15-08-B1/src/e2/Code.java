@@ -40,7 +40,6 @@ public class Code {
         i=0;
         if(orden == 0){
             while(i<numFilas){
-                System.out.println(i);
                 k=0;
                 while(k<numCol){
                     if(cont < 9 && Character.getNumericValue(keypad[i][k]) != cont+1 ){
@@ -76,8 +75,6 @@ public class Code {
                     }else if(cont > 9 && Character.getNumericValue(keypad[i][k]) != comprletras ){
                         return false;
                     }else if(Character.getNumericValue(keypad[i][k]) == comprletras){
-                        System.out.println("Comprobamos la letra");
-                        System.out.println(Character.getNumericValue(keypad[i][k]));
                         if(comprletras < 35){
                             comprletras++;
                         }
@@ -85,10 +82,8 @@ public class Code {
                     i++;
                     cont++;
                 }
-                System.out.println("Cambiamos de fila");
                 k++;
             }
-            System.out.println("Acabamos de recorrer toda la matriz");
             return true;
         }
 
