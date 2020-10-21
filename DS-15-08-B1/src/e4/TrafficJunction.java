@@ -28,6 +28,7 @@ public class TrafficJunction {
      * The order is: north , south , east , west and then again north .
      */
     public void timesGoesBy () {
+
         north.updateTime();
         south.updateTime();
         east.updateTime();

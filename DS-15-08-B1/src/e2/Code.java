@@ -14,8 +14,10 @@ public class Code {
 
         if(keypad == null)
             return false;
+
         if(keypad[0][0] !='1')
             return false;
+
         numFilas = keypad.length;
         numCol= keypad[i].length;
 
@@ -101,6 +103,22 @@ public class Code {
      * @return true if it is valid , false otherwise .
      */
     public static boolean areMovementsValid ( String [] movements ) {
+        int i = 0,k;
+        if(movements == null)
+            return false;
+        while (i < movements.length){
+            if(movements[i] == null){
+                return false;
+            }
+            k=0;
+            while(k<movements[i].length()){
+                if(movements[i].charAt(k) != 'U' && movements[i].charAt(k) != 'D' && movements[i].charAt(k) != 'L' && movements[i].charAt(k) != 'R' )
+                    return false;
+                k++;
+            }
+            i++;
+
+        }
 
         return true;
     }
@@ -114,7 +132,31 @@ public class Code {
      * @throws IllegalArgumentException if the keypad of the movements are invalid .
      */
     public static String obtainCode (char [][] keypad , String [] movements ) {
+        StringBuilder aux = new StringBuilder();
+        int i=0,k,f=0,c=0,maxF,maxC;
+        maxF = keypad.length;
+        maxC = keypad[0].length;
+        while(i<movements.length){
+            k=0;
+            while (k<movements[i].length()){
 
-        return movements[0];
+                if(movements[i].charAt(k)=='U')
+                    if(f!=0)
+                        f--;
+                if(movements[i].charAt(k)=='D')
+                    if(f<maxF-1)
+                        f++;
+                if(movements[i].charAt(k)=='L')
+                    if(c!=0)
+                        c--;
+                if(movements[i].charAt(k)=='R')
+                    if(c<maxC-1)
+                        c++;
+                k++;
+            }
+            aux.append(keypad[f][c]);
+            i++;
+        }
+        return aux.toString();
     }
 }
