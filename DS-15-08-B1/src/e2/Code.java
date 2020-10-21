@@ -1,7 +1,5 @@
 package e2;
 
-import java.util.Arrays;
-
 public class Code {
 
     /**
@@ -12,7 +10,7 @@ public class Code {
      * @return true if it is valid , false otherwise .
      */
     public static boolean isKeypadValid (char [][] keypad ) {
-        int numFilas,i=0,k,numCol,orden=0,cont =0,comprletras = 10;
+        int numFilas,i=0,k,numCol,orden=2,cont =0,comprletras = 10;
 
         if(keypad == null)
             return false;
