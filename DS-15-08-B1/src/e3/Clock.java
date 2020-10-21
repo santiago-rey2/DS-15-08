@@ -29,6 +29,7 @@ public class Clock {
     public Clock ( String s) {
         int h,m,se;
         boolean cmp = true;
+
         if(s.length() != 8 && s.length() != 11)
             throw new IllegalArgumentException("Invalid Format");
         if(s.charAt(2) !=':' && s.charAt(5) != ':')
