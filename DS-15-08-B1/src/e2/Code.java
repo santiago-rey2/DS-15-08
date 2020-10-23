@@ -10,7 +10,7 @@ public class Code {
      * @return true if it is valid , false otherwise .
      */
     public static boolean isKeypadValid (char [][] keypad ) {
-        int numFilas,i=0,k,numCol,orden=2,cont =0,comprletras = 10;
+        int numFilas,i=0,numCol,orden=2;
 
         if(keypad == null)
             return false;
@@ -37,54 +37,12 @@ public class Code {
             return true;
         }
         //Comprobacion de contenido de orden por filas
-        i=0;
         if(orden == 0){
-            while(i<numFilas){
-                k=0;
-                while(k<numCol){
-                    if(cont < 9 && Character.getNumericValue(keypad[i][k]) != cont+1 ){
-                        return false;
-                    }else if(cont == 9){
-                        if(Character.getNumericValue(keypad[i][k]) != 0)
-                            return false;
-                    }else if(cont > 9 && Character.getNumericValue(keypad[i][k]) != comprletras ){
-                        return false;
-                    }else if(Character.getNumericValue(keypad[i][k]) == comprletras){
-                        if(comprletras < 35){
-                            comprletras++;
-                        }
-                    }
-                    k++;
-                    cont++;
-                }
-                i++;
-            }
-            return true;
+          return Code.recorrerFilas(keypad,numCol,numFilas);
         }
         //Bucle de comprobacion contenido ordenado por columnas
-        k=0;
-        if(orden == 1){
-            while(k<numCol){
-                i=0;
-                while(i<numFilas){
-                    if(cont < 9 && Character.getNumericValue(keypad[i][k]) != cont+1 ){
-                        return false;
-                    }else if(cont == 9){
-                        if(Character.getNumericValue(keypad[i][k]) != 0)
-                            return false;
-                    }else if(cont > 9 && Character.getNumericValue(keypad[i][k]) != comprletras ){
-                        return false;
-                    }else if(Character.getNumericValue(keypad[i][k]) == comprletras){
-                        if(comprletras < 35){
-                            comprletras++;
-                        }
-                    }
-                    i++;
-                    cont++;
-                }
-                k++;
-            }
-            return true;
+        if(orden == 1) {
+            return recorrerColumnas(keypad,numCol,numFilas);
         }
 
         return false;
@@ -154,4 +112,56 @@ public class Code {
         }
         return aux.toString();
     }
+    //metodo privado para recorrer el keypad por filas
+    private static boolean recorrerFilas(char [][] keypad,int numCol,int numFilas){
+
+        int i=0,k,cont=0,comprletras=10;
+        while(i<numFilas){
+            k=0;
+            while(k<numCol){
+                if(cont < 9 && Character.getNumericValue(keypad[i][k]) != cont+1 ){
+                    return false;
+                }else if(cont == 9){
+                    if(Character.getNumericValue(keypad[i][k]) != 0)
+                        return false;
+                }else if(cont > 9 && Character.getNumericValue(keypad[i][k]) != comprletras ){
+                    return false;
+                }else if(Character.getNumericValue(keypad[i][k]) == comprletras){
+                    if(comprletras < 35){
+                        comprletras++;
+                    }
+                }
+                k++;
+                cont++;
+            }
+            i++;
+        }
+        return true;
+    }
+    //Metodo privado para recorrer el keypad por columnas
+    private static boolean recorrerColumnas(char [][] keypad,int numCol,int numFilas) {
+        int k=0,i,cont=0,comprletras=10;
+        while(k<numCol){
+            i=0;
+            while(i<numFilas){
+                if(cont < 9 && Character.getNumericValue(keypad[i][k]) != cont+1 ){
+                    return false;
+                }else if(cont == 9){
+                    if(Character.getNumericValue(keypad[i][k]) != 0)
+                        return false;
+                }else if(cont > 9 && Character.getNumericValue(keypad[i][k]) != comprletras ){
+                    return false;
+                }else if(Character.getNumericValue(keypad[i][k]) == comprletras){
+                    if(comprletras < 35){
+                        comprletras++;
+                    }
+                }
+                i++;
+                cont++;
+            }
+            k++;
+        }
+        return true;
+    }
+
 }
