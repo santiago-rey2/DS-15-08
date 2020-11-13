@@ -5,8 +5,10 @@ public abstract class Bestias extends Personajes {
     public Bestias(String nombre,int armadura,int vida){
         super(nombre,armadura,vida);
     }
-    public Bestias(Personajes p){
-        super(p);
+    public void ataque(Dado d,Heroes h){
+        int t = d.Trucado(1) - h.getArmadura();
+        if(t > 0 && h.getVida() > 0){
+            h.Attack(h.getVida()-t);
+        }
     }
-
 }

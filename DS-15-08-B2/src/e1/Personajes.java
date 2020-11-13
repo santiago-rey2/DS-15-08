@@ -2,7 +2,7 @@ package e1;
 
 import java.util.Objects;
 
-public class Personajes {
+public abstract class Personajes {
 
     private int vida;
     private int armadura;
@@ -31,6 +31,11 @@ public class Personajes {
     public String getNombre() {
         return nombre;
     }
+
+    public void Attack(int a){this.vida = a;}
+
+    public void rArmor(int a){this.armadura = a;}
+
 
     @Override
     public boolean equals(Object o) {
