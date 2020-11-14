@@ -7,7 +7,7 @@ public abstract class Heroes extends Personajes {
     }
 
     public void ataque(Dado d,Bestias b){
-        int t = d.Trucado(1) - b.getArmadura();
+        int t = d.Ataque() - b.getArmadura();
         if(t > 0 && b.getVida() > 0 ){
             b.Attack(b.getVida() - t);
         }

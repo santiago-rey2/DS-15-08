@@ -7,11 +7,7 @@ public class Dado {
     private Random r = new Random();
 
     public int Ataque(){
-        return r.nextInt(101);
-    }
-    public int Trucado(int semilla){
-         r = new Random(semilla);
-        return r.nextInt(101);
+        return Math.max(r.nextInt(101),r.nextInt(101));
     }
 
 }

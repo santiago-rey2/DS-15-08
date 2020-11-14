@@ -1,7 +1,5 @@
 package e1;
 
-import java.util.Objects;
-
 public abstract class Personajes {
 
     private int vida;
@@ -12,12 +10,6 @@ public abstract class Personajes {
         this.nombre = nombre;
         this.armadura = armadura;
         this.vida = vida;
-    }
-
-    public Personajes(Personajes p) {
-        this.nombre = p.getNombre();
-        this.armadura = p.getArmadura();
-        this.vida = p.getVida();
     }
 
     public int getVida() {
@@ -34,19 +26,4 @@ public abstract class Personajes {
 
     public void Attack(int a){this.vida = a;}
 
-    public void rArmor(int a){this.armadura = a;}
-
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Personajes)) return false;
-        Personajes that = (Personajes) o;
-        return getVida() == that.getVida();
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getVida());
-    }
 }

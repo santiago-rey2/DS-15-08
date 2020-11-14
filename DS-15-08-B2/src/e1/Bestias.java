@@ -6,7 +6,7 @@ public abstract class Bestias extends Personajes {
         super(nombre,armadura,vida);
     }
     public void ataque(Dado d,Heroes h){
-        int t = d.Trucado(1) - h.getArmadura();
+        int t = d.Ataque() - h.getArmadura();
         if(t > 0 && h.getVida() > 0){
             h.Attack(h.getVida()-t);
         }

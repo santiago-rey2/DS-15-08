@@ -11,11 +11,4 @@ public class DadoBestias extends Dado{
         return r.nextInt(91);
     }
 
-    @Override
-    public int Trucado(int semilla){
-
-        r = new Random(semilla);
-        return r.nextInt(91);
-
-    }
 }

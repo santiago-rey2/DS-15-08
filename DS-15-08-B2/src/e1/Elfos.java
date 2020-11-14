@@ -7,7 +7,7 @@ public class Elfos extends Heroes{
     }
     @Override
     public void ataque(Dado d,Bestias b){
-        int dan = d.Trucado(1) - b.getArmadura();
+        int dan = d.Ataque() - b.getArmadura();
         if(b.getClass().equals(Orcos.class)){
             dan += 10;
         }

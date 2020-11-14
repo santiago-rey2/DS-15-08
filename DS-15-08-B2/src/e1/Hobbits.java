@@ -6,7 +6,7 @@ public class Hobbits extends Heroes {
     }
     @Override
     public void ataque(Dado d,Bestias b){
-        int at = d.Trucado(1)-b.getArmadura();
+        int at = d.Ataque()-b.getArmadura();
         if(b.getClass().equals(Trasgos.class)){
             at -= 5;
         }
