@@ -19,6 +19,7 @@ public class Batalla {
         List<String> battle = new ArrayList<>();
         int i,menor,k=0;
         StringBuilder juego = new StringBuilder();
+
         menor = Math.min(ejercitoheroes.size(), ejercitobestias.size());
         while (ejercitobestias.size()!=0 && ejercitoheroes.size()!=0){
             juego.append("Turn ").append(k + 1).append("\n");

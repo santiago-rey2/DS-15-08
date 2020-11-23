@@ -6,13 +6,13 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BatallaTest {
-    Dado her = new DadoTrucado(1);
+    Dado her = new Dado(1);
     Dado hernt = new Dado();
-    Dado bes = new DadoTrucadoBestias(1);
+    Dado bes = new DadoBestias(1);
     Dado besnt = new DadoBestias();
 
 
-    public Humanos h1 = new Humanos("Lazaro",35,200);
+    public Humanos h1 = new Humanos("Lazaro",60,200);
     public Hobbits h2 = new Hobbits("Malecum",15,100);
     public Elfos h3 = new Elfos("Edd",35,150);
 

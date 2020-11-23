@@ -4,7 +4,13 @@ package e1;
 
 public class Dado {
 
-    private Random r = new Random();
+    private Random r ;
+    public Dado(int semilla){
+        r = new Random(semilla);
+    }
+    public Dado(){
+        r = new Random();
+    }
 
     public int Ataque(){
         return Math.max(r.nextInt(101),r.nextInt(101));
