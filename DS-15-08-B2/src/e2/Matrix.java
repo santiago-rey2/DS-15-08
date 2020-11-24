@@ -1,15 +1,16 @@
 package e2;
 
-import java.lang.reflect.Array;
-import java.util.IllegalFormatException;
 import java.util.Iterator;
 
 public class Matrix implements Iterable {
 
     private int[][] matrix;
+    private boolean iterator;
 
-    public Matrix(int filas, int columnas) {
+    public Matrix(int filas, int columnas,boolean it) {
+        this.iterator = it;
         int i, j;
+        this.matrix = new int[filas][columnas];
         for (i = 0; i < filas; i++) {
             for (j = 0; j < columnas; j++) {
                 this.matrix[i][j] = 0;
@@ -17,8 +18,10 @@ public class Matrix implements Iterable {
         }
     }
 
-    public Matrix(int[][] m) {
+    public Matrix(int[][] m,boolean it) {
+        this.iterator = it;
         int i, j;
+        this.matrix = m;
         if (isMatrixvalid(m)) {
             for (i = 0; i < m.length; i++) {
                 for (j = 0; j < m[i].length; j++) {
@@ -92,6 +95,9 @@ public class Matrix implements Iterable {
                 m.append("[");
                 for(int i=0;i<getnumberofColumns();i++){
                     m.append(matrix[k][i]);
+                    if(i < getnumberofColumns()-1){
+                        m.append(", ");
+                    }
                 }
                 m.append("]\n");
             }
@@ -99,6 +105,13 @@ public class Matrix implements Iterable {
         }else{
             return "[]";
         }
+    }
+
+    public Iterator<Integer> rowColumnIterator(){
+        return new rowColumnIterator(new Matrix(matrix,iterator));
+    }
+    public Iterator<Integer> ColumnRowIterator(){
+        return new ColumnRowIterator(new Matrix(matrix,iterator));
     }
 
     private boolean isMatrixvalid(int[][] m) {
@@ -118,7 +131,11 @@ public class Matrix implements Iterable {
     }
 
     @Override
-    public Iterator iterator() {
-        return null;
+    public Iterator<Integer> iterator() {
+        if(this.iterator){
+            return rowColumnIterator();
+        }else{
+            return ColumnRowIterator();
+        }
     }
 }
