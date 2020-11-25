@@ -1,5 +1,6 @@
 package e2;
 
+import javax.naming.AuthenticationException;
 import java.util.Iterator;
 
 public class rowColumnIterator implements Iterator<Integer> {
@@ -14,21 +15,27 @@ public class rowColumnIterator implements Iterator<Integer> {
 
     @Override
     public boolean hasNext() {
-        return matrix.getnumberofColumns() < col && matrix.getnumberofRows() < fil;
+//        System.out.println("Columnas matriz "+ matrix.getnumberofColumns());
+//        System.out.println("Filas matriz "+matrix.getnumberofRows());
+//        System.out.println("Filas it "+fil);
+//        System.out.println("Columnas it "+col);
+
+        return matrix.getnumberofRows() > fil;
     }
 
     @Override
     public Integer next() {
+        int aux;
         if(hasNext()){
-            if(matrix.getnumberofColumns() > col){
+            if(matrix.getnumberofColumns()-1 > col){
+                aux = matrix.getValor(fil,col);
                 col++;
-                return  matrix.getValor(fil,col);
             }else if(matrix.getnumberofRows() > fil){
+                aux = matrix.getValor(fil,col);
                 fil++;
                 col = 0;
-                return  matrix.getValor(fil,col);
             }else return null;
-
+            return aux;
         }else return null;
     }
 

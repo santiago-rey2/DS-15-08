@@ -13,25 +13,27 @@ public class ColumnRowIterator implements Iterator<Integer> {
 
     @Override
     public boolean hasNext() {
-        return matrix.getnumberofColumns() < col && matrix.getnumberofRows() < fil;
+        return matrix.getnumberofColumns() > col ;
     }
 
     @Override
     public Integer next() {
+        int aux;
         if(hasNext()){
-            if(matrix.getnumberofRows() > fil){
+            if(matrix.getnumberofRows()-1 > fil){
+                aux =  matrix.getValor(fil,col);
                 fil++;
-                return  matrix.getValor(fil,col);
             }else if(matrix.getnumberofColumns()>col){
+                aux =  matrix.getValor(fil,col);
                 col++;
                 fil = 0;
-                return  matrix.getValor(fil,col);
             }else return null;
+            return aux;
         }else return null;
     }
 
     @Override
     public void remove() {
-
+        throw new IllegalCallerException("");
     }
 }

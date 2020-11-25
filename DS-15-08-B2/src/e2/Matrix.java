@@ -5,10 +5,9 @@ import java.util.Iterator;
 public class Matrix implements Iterable {
 
     private int[][] matrix;
-    private boolean iterator;
+    private boolean iterator = true;
 
-    public Matrix(int filas, int columnas,boolean it) {
-        this.iterator = it;
+    public Matrix(int filas, int columnas) {
         int i, j;
         this.matrix = new int[filas][columnas];
         for (i = 0; i < filas; i++) {
@@ -18,8 +17,7 @@ public class Matrix implements Iterable {
         }
     }
 
-    public Matrix(int[][] m,boolean it) {
-        this.iterator = it;
+    public Matrix(int[][] m) {
         int i, j;
         this.matrix = m;
         if (isMatrixvalid(m)) {
@@ -34,36 +32,40 @@ public class Matrix implements Iterable {
     }
 
     public int getnumberofRows(){
-        return matrix[0].length;
+        return matrix.length;
     }
     public int getnumberofColumns(){
-        return  matrix.length;
+        return  matrix[0].length;
     }
     public int[][] getMatrixHowDimensonalInt(){
         return matrix;
     }
-
-    public int[] getRow(int row){
-        int[] arrayadevolver = new int[row] ;
-        int i=0;
-
-        if(row <= getnumberofRows()){
-            while(i<getnumberofColumns()){
-                arrayadevolver[i] = matrix[i][row];
-            }
-        }else {
-            throw new IllegalArgumentException("Fila indicada inexistente");
-        }
-        return arrayadevolver;
+    public void  setIterator(boolean x){
+        this.iterator = x;
     }
 
+    public int[] getRow(int row){
+        int[] arrayadevolver = new int[getnumberofColumns()] ;
+        int i=0;
+        if(row < getnumberofRows()){
+            while(i < getnumberofColumns()){
+                arrayadevolver[i] = matrix[row][i];
+                i++;
+            }
+            return arrayadevolver;
+        }else
+            throw new IllegalArgumentException("Fila indicada inexistente");
+    }
+
+
     public int[] getColumn(int col){
-        int[] arrayadevolver = new int[col] ;
+        int[] arrayadevolver = new int[getnumberofRows()] ;
         int i=0;
 
-        if(col <= getnumberofColumns()){
+        if(col < getnumberofColumns()){
             while(i<getnumberofColumns()){
-                arrayadevolver[i] = matrix[col][i];
+                arrayadevolver[i] = matrix[i][col];
+                i++;
             }
         }else {
             throw new IllegalArgumentException("Columna indicada inexistente");
@@ -81,7 +83,7 @@ public class Matrix implements Iterable {
 
     public void setValor(int fila,int col,int valor){
 
-        if(fila <= getnumberofRows() && col < getnumberofColumns()){
+        if(fila < getnumberofRows() && col < getnumberofColumns()){
             matrix[fila][col] = valor;
         }else {
             throw new IllegalArgumentException("Parametros de la matriz incorrectos");
@@ -101,17 +103,15 @@ public class Matrix implements Iterable {
                 }
                 m.append("]\n");
             }
-            return m.toString();
-        }else{
-            return "[]";
         }
+        return m.toString();
     }
 
     public Iterator<Integer> rowColumnIterator(){
-        return new rowColumnIterator(new Matrix(matrix,iterator));
+        return new rowColumnIterator(new Matrix(matrix));
     }
     public Iterator<Integer> ColumnRowIterator(){
-        return new ColumnRowIterator(new Matrix(matrix,iterator));
+        return new ColumnRowIterator(new Matrix(matrix));
     }
 
     private boolean isMatrixvalid(int[][] m) {
