@@ -6,8 +6,8 @@ import java.util.List;
 
 public class Gunfight {
 
-    private List<String> batalla = new ArrayList<>();
-    private StringBuilder aux = new StringBuilder();
+    private final List<String> batalla = new ArrayList<>();
+    private final StringBuilder aux = new StringBuilder();
 
     public List<String> duel(Gunslinger g1,Gunslinger g2){
         int i = 0;

@@ -6,9 +6,9 @@ import java.util.List;
 public class Gunslinger {
 
     private Behavior decider;
-    private List<GunsLingerAction> rivalactions = new ArrayList<>();
+    private final List<GunsLingerAction> rivalactions = new ArrayList<>();
     private int rival,reload;
-    private String nombre;
+    private final String nombre;
 
     public Gunslinger(String nom){
         this.nombre = nom;
@@ -23,8 +23,6 @@ public class Gunslinger {
             reload++;
         if(aux == GunsLingerAction.SHOOT)
             reload--;
-        if(aux == GunsLingerAction.MACHINE_GUN)
-            reload = reload - 5;
         return aux;
     }
 
@@ -36,6 +34,8 @@ public class Gunslinger {
         rivalactions.add(action);
         if(action.equals(GunsLingerAction.RELOAD))
             rival++;
+        if(action.equals(GunsLingerAction.SHOOT))
+            rival--;
     }
 
     public List<GunsLingerAction> getRivalActions(){

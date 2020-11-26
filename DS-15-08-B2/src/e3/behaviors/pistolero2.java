@@ -8,11 +8,6 @@ public class pistolero2 implements Behavior {
 
     @Override
     public GunsLingerAction action(Gunslinger g) {
-        int last = g.getRivalActions().size();
-        if( g.getRivalActions().size() > 0)
-            last = g.getRivalActions().size() -1;
-        else
-            last = g.getRivalActions().size();
 
         if(g.getReloads() == 0 && g.getRivalActions().isEmpty()){
             return GunsLingerAction.RELOAD;

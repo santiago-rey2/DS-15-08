@@ -4,14 +4,11 @@ import e3.Behavior;
 import e3.GunsLingerAction;
 import e3.Gunslinger;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class pistolero implements Behavior {
 
     @Override
     public GunsLingerAction action(Gunslinger g) {
-        int last = g.getRivalActions().size();
+        int last;
          if( g.getRivalActions().size() > 0)
             last = g.getRivalActions().size() -1;
          else
