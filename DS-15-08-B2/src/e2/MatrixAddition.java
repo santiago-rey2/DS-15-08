@@ -33,23 +33,24 @@ public class MatrixAddition {
     private Matrix guardarMatriz(int[] p,Matrix m,boolean t){
         int i=0,k=0,j=0;
 
-         if(t){
-             for(i=0;i< m.getnumberofRows();i++){
-                   for(k=0;k<m.getnumberofColumns();k++){
-                            m.setValor(i,k,p[j]);
-                      j++;
-                    }
-               }
-            }else{
-              for(i=0;i< m.getnumberofColumns();i++){
-                  for(k=0;k<m.getnumberofRows();k++){
-                      m.setValor(k,i,p[j]);
-                      j++;
-                  }
-              }
-         }
+        if(t){
+            for(i=0;i< m.getnumberofRows();i++){
+                for(k=0;k<m.getnumberofColumns();k++){
+                    m.setValor(i,k,p[j]);
+                    j++;
+                }
+            }
+        }else{
+            for(i=0;i< m.getnumberofColumns();i++){
+                for(k=0;k<m.getnumberofRows();k++){
+                    m.setValor(k,i,p[j]);
+                    j++;
+                }
+            }
+        }
         return m;
     }
 
 
 }
+
