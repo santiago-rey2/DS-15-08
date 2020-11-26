@@ -3,10 +3,10 @@ package e1;
 import java.util.*;
 
 public class Batalla {
-
+    //atributos
     private final ArrayList<Heroes> ejercitoheroes = new ArrayList<>();
     private final ArrayList<Bestias> ejercitobestias = new ArrayList<>();
-
+    //metodos
     public void addHero(Heroes h){
         this.ejercitoheroes.add(h);
     }

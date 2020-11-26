@@ -14,7 +14,7 @@ public class DadoBestias extends Dado{
     }
 
     @Override
-    public int Ataque(){
+    public int Tirada(){
         return r.nextInt(91);
     }
 

@@ -6,12 +6,12 @@ public class Hobbits extends Heroes {
     }
     @Override
     public void ataque(Dado d,Bestias b){
-        int at = d.Ataque()-b.getArmadura();
+        int at = d.Tirada()-b.getArmadura();
         if(b.getClass().equals(Trasgos.class)){
             at -= 5;
         }
         if(at > 0 && b.getVida() > 0){
-            b.Attack(b.getVida()- at);
+            b.setVida(b.getVida()- at);
         }
     }
 }

@@ -24,6 +24,6 @@ public abstract class Personajes {
         return nombre;
     }
 
-    public void Attack(int a){this.vida = a;}
+    public void setVida(int a){this.vida = a;}
 
 }

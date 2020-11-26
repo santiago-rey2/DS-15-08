@@ -12,7 +12,7 @@ public class Dado {
         r = new Random();
     }
 
-    public int Ataque(){
+    public int Tirada(){
         return Math.max(r.nextInt(101),r.nextInt(101));
     }
 
