@@ -44,7 +44,6 @@ public class Batalla {
                     ejercitoheroes.remove(i);
                 }
 
-
                 menor = Math.min(ejercitoheroes.size(), ejercitobestias.size());
                 i++;
             }

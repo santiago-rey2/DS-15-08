@@ -6,6 +6,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
 class BatallaTest {
+
     Dado her = new Dado(1);
     Dado hernt = new Dado();
     Dado bes = new DadoBestias(1);
