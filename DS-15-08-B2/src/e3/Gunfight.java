@@ -42,6 +42,18 @@ public class Gunfight {
                 batalla.add(aux.toString());
                 aux.delete(0,aux.length());
                 aux.append("Winner :").append(g2.getName()).append("\n");
+            }else if(j1 == GunsLingerAction.MACHINE_GUN && j2!=GunsLingerAction.MACHINE_GUN){
+                estavivo2 = false;
+                aux.append("The duel has ended \n");
+                batalla.add(aux.toString());
+                aux.delete(0,aux.length());
+                aux.append("Winner :").append(g1.getName()).append("\n");
+            }else if(j1 != GunsLingerAction.MACHINE_GUN && j2==GunsLingerAction.MACHINE_GUN){
+                estavivo1 = false;
+                aux.append("The duel has ended \n");
+                batalla.add(aux.toString());
+                aux.delete(0,aux.length());
+                aux.append("Winner :").append(g2.getName()).append("\n");
             }else if(j1 == GunsLingerAction.SHOOT && j2 == GunsLingerAction.SHOOT){
                 estavivo1 = false;
                 estavivo2 = false;
