@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/DS-15-08-B1/DS-15-08-B1.iml" filepath="$PROJECT_DIR$/DS-15-08-B1/DS-15-08-B1.iml" />
       <module fileurl="file://$PROJECT_DIR$/DS-15-08-B2/DS-15-08-B2.iml" filepath="$PROJECT_DIR$/DS-15-08-B2/DS-15-08-B2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DS-15-08-PD/DS-15-08-PD.iml" filepath="$PROJECT_DIR$/DS-15-08-PD/DS-15-08-PD.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/DS-REPO.iml" filepath="$PROJECT_DIR$/.idea/DS-REPO.iml" />
     </modules>
   </component>

@@ -6,6 +6,8 @@ import e3.Gunslinger;
 
 public class DS_15_08 implements Behavior {
 
+    public DS_15_08(){}
+
     @Override
     public GunsLingerAction action(Gunslinger g) {
         int last;

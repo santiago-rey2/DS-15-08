@@ -4,7 +4,7 @@ package e1;
 
 public class Dado {
 
-    private Random r ;
+    private final Random r ;
     public Dado(int semilla){
         r = new Random(semilla);
     }
