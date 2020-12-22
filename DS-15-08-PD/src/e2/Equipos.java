@@ -76,19 +76,15 @@ public class Equipos extends ElementosEquipos {
     }
 
     @Override
-    public String getCoWorkers(Equipos p) {
+    public String getCoWorkers(Proyecto p) {
         String aux="";
         String keymap = p.getNombre();
-        for(ElementosEquipos e : p.getTeamWorkers()){
-            if(e.getClass()==Equipos.class){
-                //aux= aux +e.getNombre()+": "+e.numHoras(keymap)+" hours, "+e.coste(keymap)+" €\n";
-                aux +=  e.getWorkers(p.getNombre());
-            }else if(e.getClass()== Trabajador.class){
-                aux+= "\t"+e.getNombre()+": "+e.numHoras(keymap)+" hours, "+e.coste(keymap)+" €\n";
-                System.out.println(e.getNombre());
+        int i = 0;
+        while(i < p.getTrabajadores().getTeamWorkers().size()){
+            if(p.getTrabajadores().getTeamWorkers().get(i).getClass() == Equipos.class){
+                aux += p.getTrabajadores().getTeamWorkers().get(i).getWorkers(keymap);
             }
-
-
+            i++;
         }
         return aux;
     }

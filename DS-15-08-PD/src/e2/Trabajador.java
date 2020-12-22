@@ -42,7 +42,16 @@ public class Trabajador extends ElementosEquipos{
     }
 
     @Override
-    public String getCoWorkers(Equipos p) {
-        return null;
+    public String getCoWorkers(Proyecto p) {
+        String aux="";
+        String keymap = p.getNombre();
+        int i = 0;
+        while(i < p.getTrabajadores().getTeamWorkers().size()){
+            if(p.getTrabajadores().getTeamWorkers().get(i).getClass() == Equipos.class){
+                aux += p.getTrabajadores().getTeamWorkers().get(i).getWorkers(keymap);
+            }
+            i++;
+        }
+        return aux;
     }
 }

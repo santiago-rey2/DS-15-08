@@ -48,6 +48,8 @@ class ProyectoTest {
         System.out.println(p1.getWorkerName());
         assertEquals("Team Comunismo: 70.0 hours, 54100.0 €\nJuan: 50.0 hours, 1000.0 €\nPepe: 10.0 hours, 400.0 €\nWolf: 10.0 hours, 10.0 €\nTeam Counter: 0.0 hours, 0.0 €\nMoñeco: 0.0 hours, 0.0 €\nLuis: 0.0 hours, 0.0 €\nLulu: 0.0 hours, 0.0 €\nTeam Equipos: 0.0 hours, 0.0 €\nTeam ApruebaDS: 0.0 hours, 0.0 €\nOscar: 0.0 hours, 0.0 €\nSanti: 0.0 hours, 0.0 €\nJuanra: 0.0 hours, 0.0 €\n",p1.getWorkerName());
         assertEquals(p1.getNombre(),"Hombre");
+        System.out.println(e1.getCoWorkers(p1));
+        System.out.println(t1.getCoWorkers(p1));
     }
     @Test
     public void EquiposTest(){

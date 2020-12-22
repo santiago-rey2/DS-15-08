@@ -18,6 +18,6 @@ public abstract class ElementosEquipos {
     public abstract float coste(String s);
     public abstract void  actulizeWorkedHours(String s,float h);
     public abstract String getWorkers(String keymap);
-    public abstract String getCoWorkers(Equipos p);
+    public abstract String getCoWorkers(Proyecto p);
 
 }
