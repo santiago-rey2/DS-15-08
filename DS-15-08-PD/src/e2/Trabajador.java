@@ -12,7 +12,11 @@ public class Trabajador extends ElementosEquipos{
     //y un numhoras trabajadas en un proyecto variable.
     public Trabajador(String nombre, int costo) {
         super(nombre);
-        this.costo = costo;
+        if(costo >= 0){
+            this.costo = costo;
+        }else{
+            throw new IllegalArgumentException("No puedes poner un sueldo negativo");
+        }
     }
 
     //Redefinimos los metodos abstractos del interfaz
