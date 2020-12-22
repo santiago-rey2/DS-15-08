@@ -30,4 +30,8 @@ public class Proyecto {
     public Equipos getTrabajadores() {
         return trabajadores;
     }
+
+    public float getCoste(){
+        return trabajadores.coste(nombre);
+    }
 }

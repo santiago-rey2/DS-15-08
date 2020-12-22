@@ -29,7 +29,7 @@ public class Equipos extends ElementosEquipos {
     public float coste(String keymap){
         float n = 0;
         for(ElementosEquipos t : trabajadores){
-            n += t.coste(keymap) * t.numHoras(keymap);
+            n += t.coste(keymap);
         }
         return n;
     }

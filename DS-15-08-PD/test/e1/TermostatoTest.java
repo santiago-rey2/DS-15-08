@@ -2,12 +2,16 @@ package e1;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class TermostatoTest {
     Termostato termostato = new Termostato();
     @Test
     void termostatoTest(){
+        List<String> registro;
+        int i=0;
         assertEquals(termostato.getEstado(),Off.getInstancia());
         assertFalse(termostato.getOnOff());
         termostato.changeMode(Manual.getInstancia());
@@ -60,8 +64,16 @@ class TermostatoTest {
         termostato.changeMode(Timer.getInstancia());
         assertThrows(new UnsupportedOperationException().getClass(),() -> termostato.changeMode(Timer.getInstancia()));
         assertThrows(new UnsupportedOperationException().getClass(),() -> termostato.changeMode(Program.getInstancia()));
+        termostato.changeMode(Manual.getInstancia());
+        termostato.changeMode(Timer.getInstancia());
+        termostato.changeMode(Manual.getInstancia());
+        termostato.changeMode(Program.getInstancia());
         termostato.changeMode(Off.getInstancia());
-        termostato.screenInfo();
+        registro = termostato.screenInfo();
+        while(i< registro.size()){
+            System.out.println(registro.get(i));
+            i++;
+        }
 
     }
 }
