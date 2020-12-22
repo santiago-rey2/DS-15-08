@@ -1,6 +1,7 @@
 package e1;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Termostato {
 
@@ -32,12 +33,8 @@ public class Termostato {
          this.time += 5; //Cada vez que actualizamos la informacion pasan 5 minutos de tiempo
          this.estado.putOnOff(this);
      }
-     public void screenInfo(){
-         int i = 0;
-         while (registro.size()>i){
-             System.out.println(registro.get(i));
-             i++;
-         }
+     public List<String> screenInfo(){
+        return registro;
      }
      public void changeMode(Estado newestate){
          this.estado.cambiarEstado(this,newestate);
